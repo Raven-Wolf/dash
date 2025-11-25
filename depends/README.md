@@ -12,6 +12,7 @@ as well as [packages.md](packages.md) for how to add packages.
 
 To build dependencies for the current arch+OS:
 
+    cd depends
     make
 
 ### macOS
@@ -58,10 +59,10 @@ To build dependencies for the current arch+OS:
 **Dash Core's `configure` script by default will ignore the depends output.** In
 order for it to pick up libraries, tools, and settings from the depends build,
 you must set the `CONFIG_SITE` environment variable to point to a `config.site` settings file.
-In the above example, a file named `depends/x86_64-w64-mingw32/share/config.site` will be
+In the above example, a file named `depends/x86_64-pc-linux-gnu/share/config.site` will be
 created. To use it during compilation:
 
-    CONFIG_SITE=$PWD/depends/x86_64-w64-mingw32/share/config.site ./configure
+    CONFIG_SITE=$PWD/depends/x86_64-pc-linux-gnu/share/config.site ./configure
 
 The default install prefix when using `config.site` is `--prefix=depends/<host-platform-triplet>`,
 so depends build outputs will be installed in that location.
